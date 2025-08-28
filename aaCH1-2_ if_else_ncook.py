@@ -2,14 +2,14 @@
 username = input('Enter a username>')
 password = input('Enter your strong password>')
 
-if len(password) <= 5:
+if len(password) <= 5: #checks if password is less than or equal to 5 characters
 	print('Password is too short')
 	exit()
-elif len(password) >= 15:
+elif len(password) >= 15: #checks if password is greater than or equal to 15 characters
 	print ('Password is too long')
 	exit()
 else:
-	print ('Password is accepted')
+	print ('Password is accepted') #if password is between 6 and 14 characters, it is accepted
 
 #now login
 check_user = input('Username: ') #variable check_user is used to check if inputted username is equal to username created previously
