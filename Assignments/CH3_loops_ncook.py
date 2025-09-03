@@ -1,5 +1,4 @@
-#countdown timer with sys module
-from calendar import c
+#countdown timer with sys 
 import sys
 
 starting_number = int(input("Enter a starting number for the countdown: ")) #
