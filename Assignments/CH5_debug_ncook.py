@@ -5,7 +5,16 @@ guess = ''
 while guess not in ('heads', 'tails'):
     print('Guess the coin toss! Enter heads or tails:')
     guess = input()
-toss = random.randint(0, 1)  # 0 is tails, 1 is heads
+toss = random.randint(0, 1) # 0 is tails, 1 is heads
+print(toss)
+
+#fix -> convert toss to string 'heads' or 'tails' from and integer with a simple if statement
+
+if toss == 0:
+    toss = 'tails'
+else:
+    toss = 'heads' 
+
 if toss == guess:
     print('You got it!')
 else:
