@@ -1,19 +1,18 @@
 
 def display_inventory(inventory):
-    #displays the item in invertory list
     print("Inventory:")
-    item_total = 0
-    for k, v in inventory.items(): #loops through the dictionary and prints the key and value (k and v)
-        print(f'{v} {k}') #prints the value and key in the format "value key"
-        item_total += v #adds the value to the item_total variable
-    print("\nTotal number of items: " + str(item_total)) #prints the total number of items in the inventory
+    item_total = 0 #initializes item total
+    for k, v in inventory.items(): #loops through inv, prints value, followed by key pair
+        print(f'{v} {k}')
+        item_total += v #each time item is counted, the total goes up
+    print("\nTotal number of items: " + str(item_total))
 
-def add_to_inventory(inventory, added_itmes): #takes dict, and list as parameters
+def add_to_inventory(inventory, added_itmes):
     for item in added_itmes:
         if item not in inventory:
-            inventory.setdefault(item, 0) #if loot item isnt in inventory, add to and convert to dict type with a value of 0
-        inventory[item] += 1 #adds 1 to the value of the item in the inventory
-    return inventory #returns the updated inventory
+            inventory.setdefault(item, 0) #if theres a new item, it sets it as a dictionary entry with a value of 0
+        inventory[item] += 1 #either ups value from 0 to 1, or just adds one to total in inv
+    return inventory 
 
 
 
