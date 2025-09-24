@@ -1,23 +1,27 @@
 import re
 
-password = input('enter a password >\n')
+isStrong = False
 
 def passwordVal(passwd):
-    value = False
-    while value is True:
-        if len(passwd) < 8:
-            print('min length is 8 characters')
-            value = 
-            #return False
-        elif not re.search(r'[0-9]+', passwd):
-            print('min one number')
-            #return False
-        elif not re.search(r'[A-Z]+', passwd):
-            print('min one capital letter')
-            #return False   
-        elif not re.search(r'[a-z]+', passwd):
-            print('min one lowercase letter')
-            #return False
-        return True
+    global isStrong
+    # Assume it's strong at the start
+    isStrong = True
+    
+    if len(passwd) < 8:
+        print('min length is 8 characters')
+        isStrong = False
+    if not re.search(r'\d+', passwd):
+        print('min one number')
+        isStrong = False
+    if not re.search(r'[A-Z]+', passwd):
+        print('min one capital letter')
+        isStrong = False
+    if not re.search(r'[a-z]+', passwd):
+        print('min one lowercase letter')
+        isStrong = False
+ 
+while isStrong is False:
+    password = input('enter a password >\n')
+    passwordVal(password)
 
-passwordVal(password)
+print("Password accepted!")
