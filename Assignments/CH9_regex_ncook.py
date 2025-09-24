@@ -10,13 +10,13 @@ def passwordVal(passwd):
     if len(passwd) < 8:
         print('min length is 8 characters')
         isStrong = False
-    if not re.search(r'\d+', passwd):
+    if not re.search(r'\d', passwd):
         print('min one number')
         isStrong = False
-    if not re.search(r'[A-Z]+', passwd):
+    if not re.search(r'[A-Z]', passwd):
         print('min one capital letter')
         isStrong = False
-    if not re.search(r'[a-z]+', passwd):
+    if not re.search(r'[a-z]', passwd):
         print('min one lowercase letter')
         isStrong = False
  
