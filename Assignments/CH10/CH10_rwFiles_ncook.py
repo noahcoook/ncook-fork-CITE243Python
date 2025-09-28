@@ -18,6 +18,7 @@ Usage:
 
 import os, re, sys
 from pathlib import Path
+
 try:
     #opens file, reads content as 'content', if not found then program exits
     with open('Assignments/CH10/madlibs.txt', 'r', encoding='UTF-8') as madlib:
@@ -26,11 +27,26 @@ except FileNotFoundError:
     print('no file found!')
     sys.exit()
 
-#basic asking for input
-adjective = input('please enter a adjective > ')
-noun = input('please enter a noun > ')
-adverb = input('please enter a adverb > ')
-verb = input('please enter a verb > ')
+def get_word(word_type):
+    #Simple function to get and validate one word from user
+    while True:
+        user_input = input(f'Please enter a {word_type} > ').strip() #gets ride of any unwanted spaces
+        
+        # Check if empty
+        if user_input == '':
+            print('Please enter something, not empty!')
+        # Check if only letters and spaces using regex
+        elif not re.match(r'^[a-zA-Z\s]+$', user_input):
+            print('Please use only letters and spaces!')
+        # If we get here, input is good!
+        else:
+            return user_input
+
+
+adjective = get_word('adjective')
+noun = get_word('noun') 
+adverb = get_word('adverb')
+verb = get_word('verb')
 
 #modifying 'content's string, replacing keyword with input
 content = re.sub(r'ADJECTIVE', adjective, content)
