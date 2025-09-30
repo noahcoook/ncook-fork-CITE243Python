@@ -22,7 +22,7 @@ from pathlib import Path
 #gets home path of user so we can look in Downloads folder
 h = Path.home()
 
-#folder to pull pdfs from, can change if no pdfs in Downloads, just make sure path is in your user folder
+#folder to pull pdfs from, can change manually if no pdfs in Downloads, just make sure path is in your user folder
 sourceFolder = Path(h / 'Downloads')
 
 #folder to send pdf copies too
@@ -62,9 +62,7 @@ try:
     while True:
         userDelete = input(u'Would you like to delete newly generated folder? y or n \u2193 \n')
         if userDelete == 'y' or userDelete == 'Y':
-            for pdf in os.listdir(destFolder):
-                delete = os.path.join(destFolder, pdf)
-                os.unlink(delete)
+            shutil.rmtree(destFolder)
             print('\nDeleted!\n')
             break
         elif userDelete == 'n' or userDelete == 'N':
