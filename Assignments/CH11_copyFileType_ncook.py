@@ -23,16 +23,19 @@ from pathlib import Path
 h = Path.home()
 
 #folder to pull pdfs from, can change manually if no pdfs in Downloads, just make sure path is in your user folder
-sourceFolder = Path(h / 'Downloads')
+sourceFolder = h / 'Downloads'
 
 #folder to send pdf copies too
-destFolder = Path(h / 'Desktop/pdfDocs')
+destFolder = h / 'Desktop' / 'pdfDocs'
 
 #makes destFolder if not already there
 os.makedirs(destFolder, exist_ok=True)
 
 #lists out files in sourceFolder so for loop can iterate through them
 filesList = os.listdir(sourceFolder)
+
+#makes dest file on desktop
+os.makedirs(destFolder, exist_ok=True)
 
 #regex pattern, doesnt need to be regex neccesarily but I like it. Could easily use endswith() method
 pattern = (r'\.pdf$')
@@ -56,6 +59,16 @@ for pdf in os.listdir(destFolder):
     count += 1
     print(f'{count}: {pdf}')
 
+
+oneDriveDesktop = h / 'OneDrive' / 'Desktop'
+#added becausae i realized my laptop's desktop was synced to onedrive, so folder placement was different    i
+print(f'''
+
+IF NOT APPEARING ON DESKTOP:
+   -Check if OneDrive is on, your desktop is technically {oneDriveDesktop} if it's on.
+   -Go to {destFolder} explicitly find the copies.
+
+''')
 
 #added this delete prompt to make it easy to remove from desktop
 try:
