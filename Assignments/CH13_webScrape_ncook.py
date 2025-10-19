@@ -1,3 +1,18 @@
+"""
+===========================================================
+Program Name: play2048
+Author: Noah Cook
+Date: 10/19/2025
+Description:
+    This program sends random keys to play the 2048 web game.
+    It is designed to send random keystrokes to play the 2048 game.
+    
+Usage:
+    Run the script using Python 3.9. Ensure all dependencies
+    are installed before execution.
+
+===========================================================
+"""
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
